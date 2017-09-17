@@ -19,6 +19,7 @@ public class RestSampleApi {
 	
 	@RequestMapping(value="/samples", method=RequestMethod.GET)
 	public @ResponseBody List<Sample> getAllSamples() {
+		System.out.println("getting all samples rest api call ...");
 		return sampleService.getSamples();
 	}
 	
