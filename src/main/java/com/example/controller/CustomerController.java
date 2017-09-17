@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +24,7 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/customers", method=RequestMethod.POST)
-	public String createCustomer(@ModelAttribute("customer") Customer customer ) {
+	public String createCustomer( @ModelAttribute("customer") Customer customer , BindingResult result) {
 		System.out.println("handle post call");
 		System.out.println("customer: "+customer.toString());
 		return "customer";
