@@ -12,7 +12,7 @@
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
         
   <mvc:annotation-driven/>
-  <context:component-scan base-package="com.example.controller"></context:component-scan>      
+  <context:component-scan base-package="com.example"/>      
   
   <!-- 
   <mvc:interceptors>
@@ -26,14 +26,41 @@
   </bean> 
   -->
   
+  <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+  	<property name="order" value="1"/>
+  	<property name="contentNegotiationManager">
+  		<bean class="org.springframework.web.accept.ContentNegotiationManager">
+  			<constructor-arg>
+  				<bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+  					<constructor-arg>
+  						<map>
+  							<entry key="json" value="application/json"/>
+  							<entry key="xml" value="application/xml"/>
+  						</map>
+  					</constructor-arg>
+  				</bean>
+  			</constructor-arg>
+  		</bean>
+  	</property>
+  	
+  	<property name="defaultViews">
+  		<list>
+  			<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+  		</list>
+  	</property>
+  </bean>
+  
   <bean id="messageSource" 
   		class="org.springframework.context.support.ResourceBundleMessageSource">
   	<property name="basename" value="messages"></property>
   </bean>
         
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="order" value="2"/>
   	<property name="prefix" value="/WEB-INF/jsp/"/>
   	<property name="suffix" value=".jsp"/>
   </bean> 
-  
+  <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+  	<property name="order" value="0"/>
+  </bean>  
 </beans>
