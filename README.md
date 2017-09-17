@@ -5,7 +5,9 @@ spring mvc sample code
     tomcat 8.5 server
     
 	 web.xml configuration for dispatcher servlet
-	 WEB-INF/config/servlet-config.xml to configure xml
-	 maven build deployed on tomcat 8.5
+	 WEB-INF/config/servlet-config.xml to configure spring beans
+	 HelloController 
+	 hello.jsp
+	 InternalResourceViewResolver
    
    Sample code runs at: http://localhost:8080/samplespringmvc/greetings
