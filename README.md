@@ -16,4 +16,9 @@ spring mvc sample code
 	  - capture user form input using ModelAttribute
        - example at customer.jsp & CustomerController.java @ http://localhost:8080/samplespringmvc/customers
       
+      Restful API:
+       - http://localhost:8080/samplespringmvc/samples
+       - wired SampleService
+       - return json response
+       
   
