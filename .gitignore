@@ -5,3 +5,12 @@
 .classpath
 target
 target/
+.DS_Store
+spring-test/test-output/
+classes/
+/build
+buildSrc/build
+/spring-*/build
+spring-*/src/main/java/META-INF/MANIFEST.MF
+out
+test-output
